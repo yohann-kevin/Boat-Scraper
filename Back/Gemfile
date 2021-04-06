@@ -1,0 +1,16 @@
+source "https://rubygems.org"
+
+git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
+
+# repm
+gem "pry"
+# sqlite3
+gem "sqlite3"
+# frameworks de test
+gem "tilt"
+# Ruby template engine
+gem "rack"
+# Ruby web server
+gem "thin"
+# nokogiri
+gem "nokogiri"

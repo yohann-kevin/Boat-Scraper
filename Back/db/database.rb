@@ -9,8 +9,8 @@ class Database
     @db.execute "DELETE FROM Yachts"
   end
 
-  def add_data(name, price, year, length, width, state)
-    @db.execute "INSERT OR IGNORE INTO Yachts(name, price, boat_year, length, width, state) VALUES('#{name}', #{price}, #{year}, #{length}, #{width}, '#{state}')"
+  def add_data(data)
+    @db.execute("INSERT OR IGNORE INTO Yachts VALUES(:name, :price, :boat_year, :length, :width, :state)",data)
   end
 
   def display_data

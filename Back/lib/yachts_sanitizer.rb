@@ -34,7 +34,8 @@ class YachtSanitizer
         @data[2][i] = @data[2][i].to_i
         @data[3][i] = format_width_and_length(@data[3][i])
         @data[4][i] = format_width_and_length(@data[4][i])
-        @db.add_data(@data[0][i], @data[1][i], @data[2][i], @data[3][i], @data[4][i], @data[5][i])
+        final_data = hash_data(@data[0][i], @data[1][i], @data[2][i], [@data[3][i], @data[4][i]], @data[5][i])
+        @db.add_data(final_data)
       rescue => e
         puts e
         return false
@@ -50,5 +51,16 @@ class YachtSanitizer
 
   def format_width_and_length(value)
     value.tr("m ","").to_f
+  end
+
+  def hash_data(name, price, boat_year, size, state)
+    {
+      "name" => name,
+      "price" => price,
+      "boat_year" => boat_year,
+      "length" => size[0],
+      "width" => size[1],
+      "state" => state
+    }
   end
 end

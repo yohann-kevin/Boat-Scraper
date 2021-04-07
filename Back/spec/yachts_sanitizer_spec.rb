@@ -55,4 +55,14 @@ RSpec.describe YachtSanitizer do
     yacht_sanitizer = YachtSanitizer.new(dark_data)
     expect(yacht_sanitizer.check_size_data).to eql(false)
   end
+
+  # it "return true" do
+  #   yacht_sanitizer = YachtSanitizer.new(good_data)
+  #   expect(yacht_sanitizer.transform_data).to eql(true)
+  # end
+
+  it "return false" do
+    yacht_sanitizer = YachtSanitizer.new(dark_data)
+    expect(yacht_sanitizer.transform_data).to eql(false)
+  end
 end

@@ -10,7 +10,7 @@ app = Nokogiri::HTML(html)
 
 all_price = app.css(".price").map(&:text)
 all_price << app.css(".offer").text
-all_title = app.css('.card-title').collect{|node| node.text}
+all_title = app.css(".card-title").collect(&:text)
 
 all_years = app.css(".card .badge-danger").map(&:text)
 all_state = app.css(".card-text").map(&:text)

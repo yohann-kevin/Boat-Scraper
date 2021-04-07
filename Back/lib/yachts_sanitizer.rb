@@ -46,11 +46,11 @@ class YachtSanitizer
   end
 
   def format_price(price)
-    price.tr("€htc ","").to_i
+    price.tr("€htc ", "").to_i
   end
 
   def format_width_and_length(value)
-    value.tr("m ","").to_f
+    value.tr("m ", "").to_f
   end
 
   def hash_data(name, price, boat_year, size, state)

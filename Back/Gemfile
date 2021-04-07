@@ -14,3 +14,5 @@ gem "rack"
 gem "thin"
 # nokogiri
 gem "nokogiri"
+# spec
+gem "rspec"

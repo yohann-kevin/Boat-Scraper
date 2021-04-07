@@ -10,12 +10,12 @@ class Database
   end
 
   def add_data(data)
-    @db.execute("INSERT OR IGNORE INTO Yachts VALUES(:name, :price, :boat_year, :length, :width, :state)",data)
+    @db.execute("INSERT OR IGNORE INTO Yachts VALUES(:name, :price, :boat_year, :length, :width, :state)", data)
   end
 
   def display_data
     data = @db.execute "SELECT * FROM Yachts"
     puts data
-    return data
+    data
   end
 end

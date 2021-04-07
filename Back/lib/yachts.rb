@@ -9,7 +9,7 @@ class Yachts
   end
 
   def send_data
-    return {
+    {
       "name" => @name,
       "price" => @price,
       "year" => @year,

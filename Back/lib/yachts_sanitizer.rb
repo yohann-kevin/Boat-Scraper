@@ -36,7 +36,7 @@ class YachtSanitizer
         @data[4][i] = format_width_and_length(@data[4][i])
         final_data = hash_data(@data[0][i], @data[1][i], @data[2][i], [@data[3][i], @data[4][i]], @data[5][i])
         @db.add_data(final_data)
-      rescue => e
+      rescue StandardError => e
         puts e
         return false
       end

@@ -5,7 +5,6 @@ require "./db/database"
 require "./lib/yachts"
 
 class Controller
-
   def not_found
     template = Tilt.new("./views/not_found.html.erb")
     [404, { "Content-Type" => "text/html" }, template.render]

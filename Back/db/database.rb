@@ -10,7 +10,7 @@ class Database
   end
 
   def add_data(name, price, year, length, width, state)
-    @db.execute "INSERT INTO Yachts(name, price, boat_year, length, width, state) VALUES('#{name}', #{price}, #{year}, #{length}, #{width}, '#{state}')"
+    @db.execute "INSERT OR IGNORE INTO Yachts(name, price, boat_year, length, width, state) VALUES('#{name}', #{price}, #{year}, #{length}, #{width}, '#{state}')"
   end
 
   def display_data

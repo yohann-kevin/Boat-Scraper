@@ -2,6 +2,7 @@ require "./db/database"
 
 class YachtSanitizer
   def initialize(data)
+    @db = Database.new
     @data = data
   end
 
@@ -26,8 +27,6 @@ class YachtSanitizer
   end
 
   def transform_data
-    db = Database.new
-    db.remove_last_data
     i = 0
     while i < @data[0].length
       begin
@@ -35,14 +34,14 @@ class YachtSanitizer
         @data[2][i] = @data[2][i].to_i
         @data[3][i] = format_width_and_length(@data[3][i])
         @data[4][i] = format_width_and_length(@data[4][i])
-        db.add_data(@data[0][i], @data[1][i], @data[2][i], @data[3][i], @data[4][i], @data[5][i])
+        @db.add_data(@data[0][i], @data[1][i], @data[2][i], @data[3][i], @data[4][i], @data[5][i])
       rescue => e
         puts e
         return false
       end
       i += 1
     end
-    db.display_data
+    @db.display_data
   end
 
   def format_price(price)

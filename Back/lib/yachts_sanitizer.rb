@@ -29,14 +29,22 @@ class YachtSanitizer
     data = Database.new
     data.remove_last_data
     i = 0
-    while i < @data[0].length
-      @data[1][i] = @data[1][i].tr("€htc ","").to_i
+    while i < @data[0].lengthi
+      @data[1][i] = format_price(@data[1][i])
       @data[2][i] = @data[2][i].to_i
-      @data[3][i] = @data[3][i].tr("m ","").to_f
-      @data[4][i] = @data[4][i].tr("m ","").to_f
+      @data[3][i] = format_width_and_length(@data[3][i])
+      @data[4][i] = format_width_and_length(@data[4][i])
       data.add_data(@data[0][i], @data[1][i], @data[2][i], @data[3][i], @data[4][i], @data[5][i])
       i += 1
     end
     data.display_data
+  end
+
+  def format_price(price)
+    price.tr("€htc ","").to_i
+  end
+
+  def format_width_and_length(value)
+    value.tr("m ","").to_f
   end
 end
